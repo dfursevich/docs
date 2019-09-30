@@ -50,6 +50,10 @@ Unlike transactions events have another application. They are used to reconstruc
 
 Instead of programming separate thread that executes operations asynchronously a special storage can be used that can persist an event and fire it atomically. Kafka is not appropriate choice since if we use it for storage as well we won't be able to fetch events for the single entity.  
 
+Distributed Transaction = Persisted Tansaction State + Async Execution + Retries + Idempotency. To put simply instead of ACID atomicity we use async tries/retries. Since we use retries callees must be idempotent. To achive idempotency we use deduping. Bingo!
+
+#### Deduping
+TODO
 
 ### 4. Two-phase commit transaction
 TODO
